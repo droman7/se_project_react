@@ -1,0 +1,15 @@
+.footer {
+  width: 100%;
+}
+
+.footer__copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 85px 2px 24px 0px;
+}
