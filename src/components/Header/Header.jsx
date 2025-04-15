@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
@@ -12,7 +11,7 @@ function Header({ handleAddClick, weatherData }) {
   });
   return (
     <header className="header">
-      <Link to="/se_project_react/">
+      <Link to="/">
         <img className="header__logo" alt="WTWR Logo" src={logo} />
       </Link>
 
@@ -31,7 +30,7 @@ function Header({ handleAddClick, weatherData }) {
           + Add Clothes{" "}
         </button>{" "}
       </div>
-      <Link to="/se_project_react/profile" className="header__link">
+      <Link to="/profile" className="header__link">
         <div className="header__user-container">
           <p className="header__username"> David Roman </p>
           <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
