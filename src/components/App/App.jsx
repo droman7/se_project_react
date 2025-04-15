@@ -13,7 +13,7 @@ import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import { BrowserRouter } from "react-router-dom";
-import { getItems, deleteItem } from "../../utils/api";
+import { getItems, deleteItem, addItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -44,11 +44,14 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    setClothingItems((prevItems) => [
-      { name, imageUrl, weather },
-      ...prevItems,
-    ]);
-    closeActiveModal();
+    addItem({ name, imageUrl, weather })
+      .then((newItem) => {
+        setClothingItems((prevItems) => [newItem, ...prevItems]);
+        closeActiveModal();
+      })
+      .catch((err) => {
+        console.error("Failed to add item:", err);
+      });
   };
 
   const handleCardDelete = () => {
@@ -59,7 +62,9 @@ function App() {
         );
         closeActiveModal();
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error("Delete item failed:", err);
+      });
   };
 
   useEffect(() => {
@@ -68,15 +73,20 @@ function App() {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error("Failed to fetch weather data:", err);
+      });
   }, []);
 
   useEffect(() => {
     getItems()
       .then((data) => {
-        setClothingItems(data);
+        const sortedItems = data.sort((a, b) => b._id - a._id);
+        setClothingItems(sortedItems);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error("Failed to fetch clothing items:", err);
+      });
   }, []);
 
   return (
