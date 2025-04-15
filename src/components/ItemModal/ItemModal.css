@@ -24,6 +24,13 @@
   margin: 0;
 }
 
+.modal__caption-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 32px;
+}
+
 .modal__weather {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
@@ -32,4 +39,20 @@
   letter-spacing: 0%;
   margin-bottom: 0;
   margin-top: 12px;
+}
+
+.modal__delete-button {
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: rgba(255, 77, 0, 1);
+  padding: 0;
+  width: 101px;
+  height: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  cursor: pointer;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
 }

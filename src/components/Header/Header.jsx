@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
@@ -9,21 +12,31 @@ function Header({ handleAddClick, weatherData }) {
   });
   return (
     <header className="header">
-      <img className="header__logo" alt="WTWR Logo" src={logo} />
+      <Link to="/se_project_react/">
+        <img className="header__logo" alt="WTWR Logo" src={logo} />
+      </Link>
+
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        + Add Clothes{" "}
-      </button>
-      <div className="header__user-container">
-        <p className="header__username">Terrence Tegegne</p>
-        <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
+      <div className="header__button-container">
+        {" "}
+        <ToggleSwitch />{" "}
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__add-clothes-btn"
+        >
+          {" "}
+          + Add Clothes{" "}
+        </button>{" "}
       </div>
+      <Link to="/se_project_react/profile" className="header__link">
+        <div className="header__user-container">
+          <p className="header__username"> David Roman </p>
+          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
+        </div>
+      </Link>
     </header>
   );
 }

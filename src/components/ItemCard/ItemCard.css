@@ -20,6 +20,7 @@
   letter-spacing: 0%;
   color: rgba(0, 0, 0, 0.6);
   padding: 2px 12px;
+  border-radius: 4px;
 }
 
 .card__image {
