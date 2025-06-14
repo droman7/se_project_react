@@ -1,3 +1,5 @@
-REACT + VITE WTWT SPRINT 10 PROJECT
+Sprint 14
 
-https://droman7.github.io/se_project_react/
+Front-end and Back-end combination
+
+Backend link: https://github.com/droman7/se_project_express
