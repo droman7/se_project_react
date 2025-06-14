@@ -8,22 +8,50 @@
   overflow: hidden;
 }
 
-.card__name {
+.card__top-row {
   position: absolute;
   top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.card__name {
   margin: 0;
   background-color: white;
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
-  letter-spacing: 0%;
   color: rgba(0, 0, 0, 0.6);
   padding: 2px 12px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .card__image {
   width: 100%;
+  max-width: 200px;
+  margin-top: 60px;
   border-radius: 12px;
+  object-fit: contain;
+}
+
+.card__like {
+  width: 18px;
+  height: 15px;
+  border: none;
+  background-image: url("../../assets/heart.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.card__like:hover {
+  background-image: url("../../assets/heart-liked.svg");
+  transform: scale(1.1);
+}
+
+.card__like_active {
+  background-image: url("../../assets/heart-liked.svg");
 }

@@ -111,7 +111,7 @@
   border: none;
   padding: 8px 16px;
   height: 36px;
-  width: 124px;
+  width: 86px;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -119,4 +119,9 @@
 .modal__submit:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__submit_active {
+  background-color: #000; /* active black */
+  cursor: pointer;
 }
