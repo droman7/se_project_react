@@ -116,6 +116,8 @@ export default function AddItemModal({
           <span>Cold</span>
         </label>
       </fieldset>
+
+      <button className="garment__btn">Add garment</button>
     </ModalWithForm>
   );
 }

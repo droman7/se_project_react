@@ -1,0 +1,16 @@
+.garment__btn {
+  background: none;
+  border: none;
+  color: white;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 32px;
+  cursor: pointer;
+  padding: 8px 16px;
+  height: 36px;
+  width: 124px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: color 0.2s ease;
+}

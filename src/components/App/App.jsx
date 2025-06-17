@@ -235,12 +235,14 @@ function App() {
                 <Route
                   path="/profile"
                   element={
-                    <ProtectedRoute isAllowed={!!currentUser} redirectPath="/">
+                    <ProtectedRoute loggedIn={!!currentUser}>
                       <Profile
                         onCardClick={handleCardClick}
                         clothingItems={clothingItems}
                         onAddClick={handleAddClick}
                         onUpdateUser={handleUpdateUser}
+                        onCardLike={handleCardLike}
+                        onLogout={handleLogout}
                       />
                     </ProtectedRoute>
                   }

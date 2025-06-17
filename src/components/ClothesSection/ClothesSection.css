@@ -31,3 +31,8 @@
   font-weight: 700;
   font-size: 20px;
 }
+
+.clothes-section__button:hover {
+  opacity: 1;
+  text-decoration: underline;
+}

@@ -5,7 +5,14 @@ import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
-function Profile({ clothingItems, onCardClick, onAddClick, onUpdateUser }) {
+function Profile({
+  clothingItems,
+  onCardClick,
+  onAddClick,
+  onUpdateUser,
+  onCardLike,
+  onLogout,
+}) {
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
 
   const handleEditClick = () => {
@@ -18,13 +25,14 @@ function Profile({ clothingItems, onCardClick, onAddClick, onUpdateUser }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar onEditProfile={handleEditClick} />
+        <SideBar onEditProfile={handleEditClick} onLogout={onLogout} />
       </section>
       <section className="profile__clothes-items">
         <ClothesSection
           onCardClick={onCardClick}
           clothingItems={clothingItems}
           onAddClick={onAddClick}
+          onCardLike={onCardLike}
         />
       </section>
       <EditProfileModal
