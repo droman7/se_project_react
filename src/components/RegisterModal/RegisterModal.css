@@ -1,22 +1,16 @@
-.button__container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.login__button {
+.modal__login-button {
   background: none;
   border: none;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.3);
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  margin-top: 30px;
   cursor: pointer;
-  padding: 0;
-  transition: color 0.2s ease;
+  padding: 8px 16px 8px 0;
+  transition: color 0.3s ease;
+  margin-top: 12px;
 }
 
-.login__button:hover {
-  color: #000;
+.modal__login-button:hover {
+  color: black;
 }

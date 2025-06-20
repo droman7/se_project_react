@@ -14,10 +14,12 @@ export default function RegisterModal({
   const [avatarUrl, setAvatarUrl] = useState("");
 
   useEffect(() => {
-    setEmail("");
-    setPassword("");
-    setName("");
-    setAvatarUrl("");
+    if (isOpen) {
+      setEmail("");
+      setPassword("");
+      setName("");
+      setAvatarUrl("");
+    }
   }, [isOpen]);
 
   const handleSubmit = (e) => {
@@ -35,44 +37,50 @@ export default function RegisterModal({
   return (
     <ModalWithForm
       title="Sign Up"
-      buttonText="Sign Up"
+      name="register"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      buttonText="Sign Up"
+      isSubmitDisabled={!isFormValid}
+      childrenAfterForm={
+        <button
+          type="button"
+          className="modal__login-button"
+          onClick={switchToLogin}
+        >
+          or Log In
+        </button>
+      }
     >
       <label className="modal__label">
         Email
         <input
           type="email"
           placeholder="Email"
-          className="modal__input modal__input_type_register"
-          id="register-email"
+          className="modal__input"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
-
       <label className="modal__label">
         Password
         <input
           type="password"
           placeholder="Password"
-          className="modal__input modal__input_type_register"
-          id="register-password"
+          className="modal__input"
           required
           minLength="6"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-
       <label className="modal__label">
         Name
         <input
           type="text"
-          className="modal__input modal__input_type_register"
-          id="register-name"
+          className="modal__input"
           required
           minLength="1"
           maxLength="30"
@@ -81,34 +89,17 @@ export default function RegisterModal({
           onChange={(e) => setName(e.target.value)}
         />
       </label>
-
       <label className="modal__label">
         Avatar URL
         <input
           type="url"
-          className="modal__input modal__input_type_register"
-          id="register-avatar"
+          className="modal__input"
           placeholder="Avatar URL"
           required
           value={avatarUrl}
           onChange={(e) => setAvatarUrl(e.target.value)}
         />
       </label>
-
-      <div className="button__container">
-        <button
-          className={`modal__submit ${
-            isFormValid ? "modal__submit_active" : ""
-          }`}
-          type="submit"
-          disabled={!isFormValid}
-        >
-          Sign Up
-        </button>
-        <button className="login__button" type="button" onClick={switchToLogin}>
-          or Log In
-        </button>
-      </div>
     </ModalWithForm>
   );
 }

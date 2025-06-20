@@ -1,3 +1,5 @@
+import { handleServerResponse } from "./api"; // adjust path as needed
+
 const BASE_URL = "http://localhost:3001";
 
 export const register = ({ name, avatar, email, password }) => {
@@ -7,12 +9,7 @@ export const register = ({ name, avatar, email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then((res) => {
-    if (!res.ok) {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-    return res.json();
-  });
+  }).then(handleServerResponse);
 };
 
 export const login = ({ email, password }) => {
@@ -22,12 +19,7 @@ export const login = ({ email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then((res) => {
-    if (!res.ok) {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-    return res.json();
-  });
+  }).then(handleServerResponse);
 };
 
 export const checkToken = (token) => {
@@ -37,12 +29,7 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    if (!res.ok) {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-    return res.json();
-  });
+  }).then(handleServerResponse);
 };
 
 export const editUser = (userData, token) => {
@@ -53,10 +40,5 @@ export const editUser = (userData, token) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(userData),
-  }).then((res) => {
-    if (!res.ok) {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-    return res.json();
-  });
+  }).then(handleServerResponse);
 };

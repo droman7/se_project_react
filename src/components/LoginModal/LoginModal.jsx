@@ -28,30 +28,38 @@ export default function LoginModal({
   return (
     <ModalWithForm
       title="Log In"
-      buttonText="Log In"
+      name="login"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      buttonText="Log In"
+      isSubmitDisabled={!isFormValid}
+      childrenAfterForm={
+        <button
+          type="button"
+          className="modal__signup-button"
+          onClick={switchToRegister}
+        >
+          or Sign Up
+        </button>
+      }
     >
       <label className="modal__label">
         Email
         <input
           type="email"
-          className="modal__input modal__input_type_login"
-          id="login-email"
+          className="modal__input"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
         />
       </label>
-
       <label className="modal__label">
         Password
         <input
           type="password"
-          className="modal__input modal__input_type_login"
-          id="login-password"
+          className="modal__input"
           required
           minLength="6"
           value={password}
@@ -59,24 +67,6 @@ export default function LoginModal({
           placeholder="Password"
         />
       </label>
-
-      <div className="button__container">
-        <button
-          className={`modal__submit ${
-            isFormValid ? "modal__submit_active" : ""
-          }`}
-          type="submit"
-        >
-          Login
-        </button>
-        <button
-          type="button"
-          className="modal__signup__button"
-          onClick={switchToRegister}
-        >
-          or Sign Up
-        </button>
-      </div>
     </ModalWithForm>
   );
 }

@@ -69,7 +69,7 @@ function App() {
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     addItem({ name, imageUrl, weather }, jwt)
       .then((newItem) => {
-        setClothingItems((prevItems) => [newItem, ...prevItems]);
+        setClothingItems((prevItems) => [newItem.data, ...prevItems]);
         closeActiveModal();
       })
       .catch((err) => {
@@ -216,7 +216,6 @@ function App() {
                 onLoginClick={() => setIsLoginOpen(true)}
                 onRegisterClick={() => setIsRegisterOpen(true)}
                 onLogout={handleLogout}
-                currentUser={currentUser}
               />
 
               <Routes>

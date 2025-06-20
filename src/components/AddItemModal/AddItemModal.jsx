@@ -46,6 +46,7 @@ export default function AddItemModal({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isSubmitDisabled={!name || !imageUrl || !weather}
     >
       <label className="modal__label">
         Name
@@ -116,8 +117,6 @@ export default function AddItemModal({
           <span>Cold</span>
         </label>
       </fieldset>
-
-      <button className="garment__btn">Add garment</button>
     </ModalWithForm>
   );
 }
