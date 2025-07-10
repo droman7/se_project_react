@@ -17,7 +17,6 @@ function Header({
   });
 
   const currentUser = useContext(CurrentUserContext);
-  console.log("Header - currentUser:", currentUser);
 
   const userInitial = currentUser?.name?.charAt(0).toUpperCase();
 

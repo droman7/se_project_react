@@ -1,7 +1,9 @@
-Sprint 14
+WTWR SPRINT 15 Front-end Deployment
 
-Connecting frontend and backend: Fullstack Application
+Created subdomains using Google Cloud VM.
+Issued SSL certificates using Certbot.
+Nginx was used to serve HTTPS traffic and automatically redirects HTTP traffic to HTTPS.
 
-This project is a full-stack web application where users can register, log in, edit their profiles, and interact with clothing items by adding likes. It connects a React frontend to a custom backend API, handling authentication and user data through context. The app demonstrates key software engineering concepts like protected routes, dynamic rendering, and RESTful fetch requests.
+The backend runs on Node.js with Express and MongoDB and is managed by PM2 for stability. The frontend is a React app served as static files through nginx. All parts are connected securely over HTTPS.
 
-Backend link: https://github.com/droman7/se_project_express
+Frontend: caliberwtwr.minecraftnoob.com

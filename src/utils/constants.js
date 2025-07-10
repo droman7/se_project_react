@@ -117,4 +117,11 @@ export const coordinates = {
   longitude: -87.88932,
 };
 
-export const APIkey = "3193e16de3d6eb58c1469bd4791c226c";
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.CaliberWTWR.minecraftnoob.com"
+    : "http://localhost:3001";
+
+const APIkey = "3193e16de3d6eb58c1469bd4791c226c";
+
+export { BASE_URL, APIkey };
